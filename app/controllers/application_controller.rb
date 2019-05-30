@@ -41,15 +41,15 @@ class ApplicationController < Sinatra::Base
 
   patch '/articles/:id' do
 
-    @article = Article.find(params[:id]) #repetitive?
+    @article = Article.find(params[:id])
 
     @article.update(title: params[:title], content: params[:content])
 
-    redirect "/articles/#{@article.id}" #can i do erb :show?
+    redirect "/articles/#{@article.id}" 
   end
 
 #delete
-  delete '/articles/:id' do #does it have to add delete in the route?
+  delete '/articles/:id' do
     Article.delete(params[:id])
     redirect "/articles"
   end
